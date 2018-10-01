@@ -10,10 +10,8 @@ import Spotlight from "./components/Spotlight/Spotlight";
 const App = () => (
   <Router>
     <div>
-      <Header>
-        <Navbar />
-        <Spotlight />
-      </Header>
+      <Navbar />
+      <Spotlight />
     </div>
   </Router>
 );
