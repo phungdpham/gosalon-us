@@ -1,17 +1,14 @@
 import React from "react";
-import logo1 from '../assets/images/logo/logo1.png';
 
-//log if logo displayed
-console.log(logo1);
 
 const styles = {
     backgroundColor:  {
-        backgroundColor: `#6C3483`
+        backgroundColor: `#6C3483`,
+        opacity: 1
         }
     }
 
 const Navbar = () => (
-  <main>
     <div className="navbar navbar-main navbar-expand-lg navbar-fixed-top"  style={styles.backgroundColor}>
         <div className="container">
             <a className ="navbar-brand mr-lg-5 text-white">BEAUTY NAILS SPA</a>
@@ -27,10 +24,10 @@ const Navbar = () => (
             </button>
             <div className="collapse navbar-collapse" id="navbar-main-collapse">
                 <ul className="navbar-nav align-items-lg-center">
-                    <li className="nav-item mx-2 text-white">About Us</li>
-                    <li className="nav-item mx-2 text-white">Services</li>
-                    <li className="nav-item mx-2 text-white">Gallery</li>
-                    <li className="nav-item mx-2 text-white">Promotion</li>
+                    <li className="nav-item mx-2 text-white">Home</li>
+                    {/* <li className="nav-item mx-2 text-white">Services</li>
+                    <li className="nav-item mx-2 text-white">Gallery</li> */}
+                    <li className="nav-item mx-2 text-white">Special</li>
                     <li className="nav-item mx-2 text-white">Location</li>
 
                 </ul>
@@ -50,7 +47,6 @@ const Navbar = () => (
             </div>
         </div>
     </div>
-  </main>
 );
 
 export default Navbar;

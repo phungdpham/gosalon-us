@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import LandingPage from "./pages/LandingPage";
-import Header from "./components/Header";
 import Navbar from "././components/Navbar";
-import Spotlight from "./components/Spotlight/Spotlight";
+import LandingPage from "./pages/LandingPage/LandingPage";
 
 
 
@@ -11,7 +9,9 @@ const App = () => (
   <Router>
     <div>
       <Navbar />
-      <Spotlight />
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+      </Switch>
     </div>
   </Router>
 );
