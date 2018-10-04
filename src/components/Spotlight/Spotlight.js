@@ -40,11 +40,11 @@ const Spotlight = () => (
                                             <li className="nav-item mr-0">
                                                 <a href="google.com" target="_blank" className="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex mx-2">
                                                     <span className="btn-inner--icon"><i className="fas fa-shopping-cart"></i></span>
-                                                    <span className="btn-inner--text">SERVICE</span>
+                                                    <span className="btn-inner--text">Call Us</span>
                                                 </a>
-                                                <a href="google.com" target="_blank" className="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                                <a href="/appointment" target="_blank" className="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
                                                     <span className="btn-inner--icon"><i className="fas fa-shopping-cart"></i></span>
-                                                    <span className="btn-inner--text">GALLERY</span>
+                                                    <span className="btn-inner--text">Book Appointment</span>
                                                 </a>
 
                                             </li>

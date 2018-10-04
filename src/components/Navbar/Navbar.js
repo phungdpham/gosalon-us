@@ -24,22 +24,24 @@ const Navbar = () => (
             </button>
             <div className="collapse navbar-collapse" id="navbar-main-collapse">
                 <ul className="navbar-nav align-items-lg-center">
-                    <li className="nav-item mx-2 text-white">Home</li>
-                    {/* <li className="nav-item mx-2 text-white">Services</li>
-                    <li className="nav-item mx-2 text-white">Gallery</li> */}
+                    <li className="nav-item mx-2 text-white">
+                        <a className="nav-link text-white" href="#">Home</a>
+                    </li>
+                    <li className="nav-item mx-2 text-white">Services</li>
+                    <li className="nav-item mx-2 text-white">Gallery</li>
                     <li className="nav-item mx-2 text-white">Special</li>
                     <li className="nav-item mx-2 text-white">Location</li>
 
                 </ul>
                 <ul className="navbar-nav align-items-lg-center ml-lg-auto">
                     <li className="nav-item mr-0">
-                        <a href="google.com" target="_blank" className="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex mx-2">
-                            <span className="btn-inner--icon"><i className="fas fa-shopping-cart"></i></span>
-                            <span className="btn-inner--text">Call Us</span>
+                        <a href="google.com" target="_blank" className="text-white mx-5">
+                            <span><i className="fas fa-shopping-cart"></i></span>
+                            <span>(407) 123-4567</span>
                         </a>
-                        <a href="google.com" target="_blank" className="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
-                            <span className="btn-inner--icon"><i className="fas fa-shopping-cart"></i></span>
-                            <span className="btn-inner--text">Book Appointment</span>
+                        <a href="/appointment" target="_blank" className="text-white">
+                            <span><i className="fas fa-shopping-cart"></i></span>
+                            <span>Get Direction</span>
                         </a>
 
                     </li>
