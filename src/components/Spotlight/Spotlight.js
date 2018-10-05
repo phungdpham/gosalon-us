@@ -1,5 +1,5 @@
 import React from "react";
-import spotlightImage from "../assets/images/spotlight/spotlight3-2.jpg";
+import spotlightImage from "../assets/images/spotlight/jumpotron1-2.jpg";
 
 const styles = {
     backgroundImage: {
