@@ -7,16 +7,57 @@ import Card from "./Card";
 
 
 
+
 class Service extends Component {
     state = {
-        services,
+        services
     };
+
+    groupBy(serList, group) {
+        return serList.reduce((acc, groupName) => {
+            const key = groupName[group];
+            if (!acc[key]) {
+                acc[key] = [];
+            }
+            acc[key].push(groupName);
+            return acc;
+            console.log(acc);
+
+        },{});
+    };
+    groupedServices = this.groupBy(services, 'group');
+
+    componentDidMount() {
+        
+    }
+
+    //use a for in loop to pull out the group names for each object
+    //use another for in loop, but be sure to get deep enough acc.basic[i].service
+
+    // console.log(groupedServices);
+    // {
+    //   "Basic Service": [
+    //     { service: 'Basic Manicure', price: 20 }, 
+    //     { service: 'Acrylic', age: 20 }
+    //   ], 
+    //   "Full Set": [{ service: 'Acrylic', price: 21 }] 
+    // }
+
+    
+    groupDisplay = () => {
+        this.setState({
+            groupList: this.groupedServices.group,
+            serviceList: [
+                        this.groupedServices.group.service
+                        ]
+        })
+    }
 
     render () {
         return (
             <CardContainer>
                 <Card>
-                    {/* <ListGroup /> */}
+                    {/* <ListGroup groupList={this.groupList}/> */}
                     <ListService services={services}/>
                 </Card>;
             </CardContainer>
