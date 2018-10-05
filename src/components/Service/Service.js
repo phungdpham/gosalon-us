@@ -13,23 +13,27 @@ class Service extends Component {
         services
     };
 
-    groupBy(serList, group) {
-        return serList.reduce((acc, groupName) => {
-            const key = groupName[group];
-            if (!acc[key]) {
-                acc[key] = [];
+
+    groupBy(serviceArr, property ) {
+        return serviceArr.reduce((groupArr, obj) => {
+            const key = obj[property];
+            if (!groupArr[key]) {
+                groupArr[key] = [];
             }
-            acc[key].push(groupName);
-            return acc;
-            console.log(acc);
-
+            groupArr[key].push(obj);
+            return groupArr;
         },{});
-    };
-    groupedServices = this.groupBy(services, 'group');
 
-    componentDidMount() {
+    };
+    grouped = this.groupBy(services, 'group');
+    
+
+    // console.log("group": ", group);
+
+
+    // componentDidMount() {
         
-    }
+    // }
 
     //use a for in loop to pull out the group names for each object
     //use another for in loop, but be sure to get deep enough acc.basic[i].service
@@ -38,21 +42,12 @@ class Service extends Component {
     // {
     //   "Basic Service": [
     //     { service: 'Basic Manicure', price: 20 }, 
-    //     { service: 'Acrylic', age: 20 }
+    //     { service: 'Acrylic', price: 20 }
     //   ], 
     //   "Full Set": [{ service: 'Acrylic', price: 21 }] 
     // }
 
-    
-    groupDisplay = () => {
-        this.setState({
-            groupList: this.groupedServices.group,
-            serviceList: [
-                        this.groupedServices.group.service
-                        ]
-        })
-    }
-
+  
     render () {
         return (
             <CardContainer>
