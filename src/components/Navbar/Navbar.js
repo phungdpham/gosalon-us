@@ -4,14 +4,14 @@ import React from "react";
 const styles = {
     backgroundColor:  {
         backgroundColor: `#6C3483`,
-        opacity: 1
+        opacity: .8
         }
     }
 
 
 
 const Navbar = () => (
-    <nav className="navbar navbar-main navbar-expand-lg navbar-fixed-top navbar-dark" id="navbar-main" style={styles.backgroundColor}  >
+    <nav className="navbar navbar-main navbar-expand-lg navbar-dark navbar-fixed-top" id="navbar-main"  style={styles.backgroundColor} >
         <div className="container">
             <a className ="navbar-brand mr-lg-5 text-white">AHH NAILS SPA</a>
             <button 
@@ -24,7 +24,7 @@ const Navbar = () => (
                 aria-label="Toggle Navigation">
                     <span className="navbar-togger-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbar-main-collapse">
+            <div className="collapse navbar-collapse navbar-dark" id="navbar-main-collapse">
                 <ul className="navbar-nav align-items-lg-center">
                     <li className="nav-item mx-2">
                         <a className="nav-link text-white" href="#">Home</a>

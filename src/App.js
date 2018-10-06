@@ -9,7 +9,7 @@ import Appointment from "./pages/AppointmentPage/Appointment";
 const App = () => (
   <Router>
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/appointment" component={Appointment} />

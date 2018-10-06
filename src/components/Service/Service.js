@@ -3,29 +3,74 @@ import services from "./services.json";
 import ListGroup from "./ListGroup";
 import ListService from "./ListService";
 import CardContainer from "./CardContainer";
-import Card from "./Card";
-
-
-
+import { Card, CardBody, CardHeader } from "../Card";
 
 class Service extends Component {
     state = {
         services
     };
+    loadServicesByGroup = () => {
+        //Creating new array of all groups names
+        const groups = services.map(groupNames => groupNames.group);
+        console.log(groups);
 
+        //Delete duplicated group names
+        const uniqGroups = [...new Set (groups)];
+        console.log (uniqGroups);
 
-    groupBy(serviceArr, property ) {
-        return serviceArr.reduce((groupArr, obj) => {
-            const key = obj[property];
-            if (!groupArr[key]) {
-                groupArr[key] = [];
-            }
-            groupArr[key].push(obj);
-            return groupArr;
-        },{});
+        //Creating new array of services by group
+        const servicesByGroup = [];
+        this.setState({ uniqGroups })
+
+        //loop through all unique groups to obtain its services
+        uniqGroups.forEach( groupName => {
+
+            //Getting list of services in same group
+            const groupedSer = services.filter( serList => {
+                if (serList.group === uniqGroups[groupName]) {
+                    const groupObj = {};
+                    groupObj.push(serList.id, serList.service, serList.price)
+                };
+                return groupedSer;
+            });
+            console.log(groupedSer);
+            servicesByGroup.push(groupedSer);
+            console.log(servicesByGroup);
+        })
 
     };
-    grouped = this.groupBy(services, 'group');
+
+    render () {
+        return (
+            <Card>
+                <CardHeader uniqGroups={services}/>
+                <CardBody services={services}/>
+            </Card>
+        )
+    };
+}
+
+export default Service;
+
+
+// class Service extends Component {
+//     state = {
+//         services
+//     };
+
+
+//     groupBy(serviceArr, property ) {
+//         return serviceArr.reduce((groupArr, obj) => {
+//             const key = obj[property];
+//             if (!groupArr[key]) {
+//                 groupArr[key] = [];
+//             }
+//             groupArr[key].push(obj);
+//             return groupArr;
+//         },{});
+
+//     };
+//     grouped = this.groupBy(services, 'group');
     
 
     // console.log("group": ", group);
@@ -48,21 +93,6 @@ class Service extends Component {
     // }
 
   
-    render () {
-        return (
-            <CardContainer>
-                <Card>
-                    {/* <ListGroup groupList={this.groupList}/> */}
-                    <ListService services={services}/>
-                </Card>;
-            </CardContainer>
-        )
-    };
-}
-
-export default Service;
-
-
 
 // const services = [{service}];
 

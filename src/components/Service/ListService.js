@@ -1,16 +1,27 @@
 import React from "react";
 
+
 const ListService = props => (
-    <ul className="list-group">
-        {props.services.map(service => (
-            <li className="list-group-item" key={service.id}>
-                {service.service}
-            </li>
-        ))}
-    </ul>
-)
+    <li className="list-group-item">
+      {props.children}
+    </li>
+  );
 
 export default ListService;
+  
+
+
+// const ListService = props => (
+//     <ul className="list-group">
+//         {props.services.map(service => (
+//             <li className="list-group-item" key={service.id}>
+//                 {service.service}
+//             </li>
+//         ))}
+//     </ul>
+// )
+
+// export default ListService;
 
 
 // [

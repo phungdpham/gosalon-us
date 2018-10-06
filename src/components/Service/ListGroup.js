@@ -1,13 +1,15 @@
 import React from "react";
+import "./ListGroup.css";
 
-
-const ListGroup = props => (
-    <h5 className="card-title">
-        {/* {props.groupList.map(groupName => (
-            <span key={group.id}>{groupName.group}</span>
-        ))} */}
-    </h5>
-)
+const ListGroup = ({ children }) => {
+    return (
+      <div className="list-overflow-container">
+        <ul className="list-group">
+          {children}
+        </ul>
+      </div>
+    );
+  };
 
 
 export default ListGroup;
