@@ -1,11 +1,7 @@
 import React from "react";
 
-export const CardHeader = props => (
+export const CardTitle = props => (
     <div className="card-header text-center">
-        {props.uniqGroups.map(groupName => (
-            <li className="list-group-item" key={groupName.id}>
-                {groupName.group}
-            </li>
-        ))}
+        {props.children}
     </div>
 );
