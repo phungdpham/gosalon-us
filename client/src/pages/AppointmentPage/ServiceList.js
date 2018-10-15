@@ -1,9 +1,9 @@
 import React from "react";
 //importing components
-import { PanelGroup, Panel, PanelHeading, PanelBody } from "../../components/Panel";
+import { PanelGroup, Panel, PanelHeading, PanelBody, BookBtn } from "../../components/Panel";
 
 
-const ServiceList = () => (
+const ServiceList = props => (
     <div>
         <PanelGroup>
             <Panel>
@@ -11,29 +11,40 @@ const ServiceList = () => (
                 <PanelBody>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                            <span className="float-left">Acrylic Full Set</span>
+                            <span className="float-left mt-2" >Acrylic Full Set</span>
                             <span>
-                                <button type="button" className="btn btn-outline-warning float-right mx-5">Book</button>
+                                <BookBtn 
+                                    name="service"
+                                    value="Acrylic Full Set"
+                                    onClick={props.stateInfo.handleBookService}
+                                    />                            
                             </span>
-                            <span className="float-right mx-5">30</span>
+                            <span className="float-right mx-5 mt-2">30</span>
 
 
                         </li>
                         <li className="list-group-item">
-                            <span className="float-left">Acrylic Pink And White</span>
+                            <span className="float-left mt-2">Acrylic Pink And White</span>
                             <span>
-                                <button type="button" className="btn btn-outline-warning float-right mx-5">Book</button>
+                                <BookBtn 
+                                    name="service"
+                                    value="Acrylic Pink And White"
+                                    />                          
                             </span>
-                            <span className="float-right mx-5">55</span>
+                            <span className="float-right mx-5 mt-2">55</span>
 
 
                         </li>
                         <li className="list-group-item">
-                            <span className="float-left">Dip It</span>
+                            <span className="float-left mt-2">Dip It</span>
                             <span>
-                                <button type="button" className="btn btn-outline-warning float-right mx-5">Book</button>
+                                <BookBtn 
+                                    name="service"
+                                    value="Dip It"
+                                    onClick={this.handleBookService}
+                                    />                           
                             </span>
-                            <span className="float-right mx-5">40</span>
+                            <span className="float-right mx-5 mt-2">40</span>
 
                         </li>
                     </ul>
@@ -44,29 +55,38 @@ const ServiceList = () => (
                 <PanelBody>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                            <span className="float-left">Basic Manicure</span>
+                            <span className="float-left mt-2">Basic Manicure</span>
                             <span>
-                                <button type="button" className="btn btn-outline-warning float-right mx-5">Book</button>
+                                <BookBtn 
+                                    name="service"
+                                    value="Basic Manicure"
+                                    />                           
                             </span>
-                            <span className="float-right mx-5">20</span>
+                            <span className="float-right mx-5 mt-2">20</span>
 
 
                         </li>
                         <li className="list-group-item">
-                            <span className="float-left">French</span>
+                            <span className="float-left mt-2">French</span>
                             <span>
-                                <button type="button" className="btn btn-outline-warning float-right mx-5">Book</button>
+                                <BookBtn 
+                                    name="service"
+                                    value="French"
+                                    />  
                             </span>
-                            <span className="float-right mx-5">8</span>
+                            <span className="float-right mx-5 mt-2">8</span>
 
 
                         </li>
                         <li className="list-group-item">
-                            <span className="float-left">Basic Polish Change</span>
+                            <span className="float-left mt-2">Basic Polish Change</span>
                             <span>
-                                <button type="button" className="btn btn-outline-warning float-right mx-5">Book</button>
+                                <BookBtn 
+                                    name="service"
+                                    value="Basic Polish Change"
+                                />
                             </span>
-                            <span className="float-right mx-5">8</span>
+                            <span className="float-right mx-5 mt-2">8</span>
 
 
                         </li>
@@ -78,19 +98,25 @@ const ServiceList = () => (
                 <PanelBody>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                        <span className="float-left">Cosmo Pedicure</span>
+                        <span className="float-left mt-2">Cosmo Pedicure</span>
                             <span>
-                                <button type="button" className="btn btn-outline-warning float-right mx-5">Book</button>
+                                <BookBtn 
+                                    name="service"
+                                    value="Cosmo Pedicure"
+                                    />                       
                             </span>
-                            <span className="float-right mx-5">15</span>
+                            <span className="float-right mx-5 mt-2">15</span>
 
                         </li>
                         <li className="list-group-item">
-                        <span className="float-left">Champagne Pedicure</span>
+                        <span className="float-left mt-2">Champagne Pedicure</span>
                             <span>
-                                <button type="button" className="btn btn-outline-warning float-right mx-5">Book</button>
+                                <BookBtn 
+                                    name="service"
+                                    value="Champagne Pedicure"
+                                    />                          
                             </span>
-                            <span className="float-right mx-5">10</span>
+                            <span className="float-right mx-5 mt-2">10</span>
 
                         </li>
                     </ul>

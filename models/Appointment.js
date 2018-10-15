@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const appointmentSchema = mongoose.Schema({
-    customerName: {type: String, require: true },
-    phoneNumber: { type: Number, required: true },
-    selectService: { type: String, required: true},
-    selectDate: {type: Date, require: true},
-    selectTime: {type: String, require: true},
+    name: {type: String, require: true },
+    phone: { type: Number, required: true },
+    service: { type: String, required: true},
+    date: {type: Date, require: true},
+    time: {type: String, require: true},
 });
 
 const Appointment = mongoose.model("Appointment", appointmentSchema);
