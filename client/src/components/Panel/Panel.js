@@ -10,7 +10,7 @@ const style = {
 }
 
 export const Panel = props => (
-    <div className="panel panel-default" style={style.paddling}>
+    <div {...props} className="panel panel-default" style={style.paddling}>
         {props.children}
     </div>
 );
