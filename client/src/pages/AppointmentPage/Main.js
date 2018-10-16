@@ -16,7 +16,7 @@ import { FormBtn, Input } from"../../components/Form";
 import { List, ListItem } from "../../components/List";
 import Span from "../../components/Span";
 //Import JSX Component
-// import ServiceList from "./ServiceList";
+import ServiceList from "./ServiceList";
 
 
 
@@ -24,15 +24,15 @@ class Appointments extends Component {
     state = {
         service: "",
         date: "",
-        time: moment(),
+        time: "",
         name: "",
         phone: "",
     };
 
-    handleBookService = event => {
-        const { name, value } = event.target;
+    HandleSelectService = service => {
+        const { name, value } = service.target;
         this.setState({
-            service: this.state.service
+            [name]: value
         })
     }
 
@@ -48,22 +48,19 @@ class Appointments extends Component {
         if(this.state.service && this.state.date && this.state.time && this.state.name && this.state.phone) {
             API.saveAppointment({
                 service: this.state.serviceBooked,
-                date: this.state.date,
-                time: this.state.time,
+                date: this.state.date.format("L"),
+                time: this.state.date.format("LT"),
                 name: this.state.name,
                 phone: this.state.phone
             })
         }
     }
 
-    handleDateTimeChange = date => {
+    handleDateChange(date) {
         this.setState({
-            date: date,
-            time: date
+            date: date
         })
     }
-
-
     render() {
         return (
             <div>
@@ -74,124 +71,9 @@ class Appointments extends Component {
                 <Container>
                     <Row>
                         <Col size="md-6">
-                        <PanelGroup>
-                            <Panel>
-                                <PanelHeading><h4><strong>Nails Enhancements</strong></h4></PanelHeading>
-                                <PanelBody>
-                                    <ul className="list-group list-group-flush">
-                                        <li className="list-group-item">
-                                            <span className="float-left mt-1" ><h6>Acrylic Full Set</h6></span>
-                                            <span>
-                                                <BookBtn 
-                                                    name="service"
-                                                    value="Acrylic Full Set"
-                                                    onClick={this.handleBookService}
-                                                    />                            
-                                            </span>
-                                            <span className="float-right mx-4 mt-1">30</span>
-
-
-                                        </li>
-                                        <li className="list-group-item">
-                                            <span className="float-left mt-1" ><h6>Acrylic Pink And White</h6></span>
-                                            <span>
-                                                <BookBtn 
-                                                    name="service"
-                                                    value="Acrylic Full Set"
-                                                    onClick={this.handleBookService}
-                                                    />                            
-                                            </span>
-                                            <span className="float-right mx-4 mt-1">55</span>
-
-
-                                        </li>
-                                        <li className="list-group-item">
-                                            <span className="float-left mt-1"><h6>Dip It</h6></span>
-                                            <span>
-                                                <BookBtn 
-                                                    name="service"
-                                                    value="Dip It"
-                                                    onClick={this.handleBookService}
-                                                    />                           
-                                            </span>
-                                            <span className="float-right mx-4 mt-1">40</span>
-
-                                        </li>
-                                    </ul>
-                                </PanelBody>
-                            </Panel>
-                            <Panel>
-                                <PanelHeading><h4><strong>Manicure</strong></h4></PanelHeading>
-                                <PanelBody>
-                                    <ul className="list-group list-group-flush">
-                                        <li className="list-group-item">
-                                            <span className="float-left mt-1"><h6>Basic Manicure</h6></span>
-                                            <span>
-                                                <BookBtn 
-                                                    name="service"
-                                                    value="Basic Manicure"
-                                                    />                           
-                                            </span>
-                                            <span className="float-right mx-4 mt-1">20</span>
-
-
-                                        </li>
-                                        <li className="list-group-item">
-                                            <span className="float-left mt-1"><h6>French</h6></span>
-                                            <span>
-                                                <BookBtn 
-                                                    name="service"
-                                                    value="French"
-                                                    />  
-                                            </span>
-                                            <span className="float-right mx-4 mt-1">8</span>
-                                        </li>
-                                        <li className="list-group-item">
-                                            <span className="float-left mt-1"><h6>Basic Polish Change</h6></span>
-                                            <span>
-                                                <BookBtn 
-                                                    name="service"
-                                                    value="Basic Polish Change"
-                                                />
-                                            </span>
-                                            <span className="float-right mx-4 mt-1">8</span>
-
-
-                                        </li>
-                                    </ul>
-                                </PanelBody>
-                            </Panel>
-                            <Panel>
-                                <PanelHeading><h4><strong>Pedicure</strong></h4></PanelHeading>
-                                <PanelBody>
-                                    <ul className="list-group list-group-flush">
-                                        <li className="list-group-item">
-                                        <span className="float-left mt-1"><h6>Cosmo Pedicure</h6></span>
-                                            <span>
-                                                <BookBtn 
-                                                    name="service"
-                                                    value="Cosmo Pedicure"
-                                                    />                       
-                                            </span>
-                                            <span className="float-right mx-4 mt-1">15</span>
-
-                                        </li>
-                                        <li className="list-group-item">
-                                        <span className="float-left mt-1"><h6>Champagne Pedicure</h6></span>
-                                            <span>
-                                                <BookBtn 
-                                                    name="service"
-                                                    value="Champagne Pedicure"
-                                                    />                          
-                                            </span>
-                                            <span className="float-right mx-4 mt-1">10</span>
-
-                                        </li>
-                                    </ul>
-                                </PanelBody>
-                            </Panel>
-        </PanelGroup>
-                            {/* <ServiceList /> */}
+                            <ServiceList 
+                                stateInfo={this.state}
+                            />
                         </Col>
                         <Col size="md-6">
                             <Card>
@@ -204,24 +86,27 @@ class Appointments extends Component {
                                     </Panel>
 
                                         <form>
-                                            <div className="form-group">
+                                            {/* <div className="form-group">
                                                 <DatePicker 
                                                     selected={this.state.date}
-                                                    onChange={this.handleDateTimeChange}
+                                                    onChange={this.handleDateChange}
                                                     placeholderText="Select Date"
                                                     className="form-control form-control-emphasize"
                                                 />  
-                                            </div>
+                                            </div> */}
                                             <div className="form-group">
                                                 <DatePicker 
                                                     selected={this.state.date}
-                                                    onChange={this.HandleDateTimeChange}
-                                                    placeholderText="Select Time"
+                                                    onChange={this.handleDateChange}
+                                                    placeholderText="Select Date and Time"
                                                     showTimeSelect
-                                                    showTimeSelectOnly
+                                                    timeFormat="HH:mm"
                                                     timeIntervals={15}
-                                                    dateFormat="LT"
+                                                    dateFormat="LLL"
                                                     timeCaption="Time"
+                                                    minTime={moment().hours(9).minutes(0)}
+                                                    maxTime={moment().hours(19).minutes(30)}
+                                                    
                                                     className="form-control form-control-emphasize"
                                                 />  
                                             </div>
@@ -240,7 +125,8 @@ class Appointments extends Component {
                                             <FormBtn
                                                 disabled={!this.state.service && this.state.date && this.state.time && this.state.name && this.state.name}
                                                 onClick={this.handleFormSubmit}
-                                            >Confirm </FormBtn>
+                                            >Confirm 
+                                            </FormBtn>
                                             
                                         </form>
 

@@ -27,7 +27,7 @@ class Main extends Component {
                             <Panel>
                                 <PanelHeading><h3 className="my-3">Pending Booking</h3></PanelHeading>
                                 <PanelBody>
-                                    <AppointmentBooked />
+                                    <Booking />
                                 </PanelBody>
                             </Panel>
                         </Col>
@@ -58,7 +58,7 @@ class Calendar extends Component {
     }
 };
 
-class AppointmentBooked extends Component {
+class Booking extends Component {
     state = {
         service: "",
         time: "",
@@ -118,18 +118,6 @@ class AppointmentBooked extends Component {
                 </CardBody>
 
             </Card>
-
-
-            {/* <h4>Draggable Events</h4>
-              <div className='fc-event'>My Event 1</div>
-              <div className='fc-event'>My Event 2</div>
-              <div className='fc-event'>My Event 3</div>
-              <div className='fc-event'>My Event 4</div>
-              <div className='fc-event'>My Event 5</div>
-              <p>
-                  <input type='checkbox' id='drop-remove' />
-                  <label for='drop-remove'>remove after drop</label>
-              </p> */}
         </div>;
     }
     componentDidMount() {
