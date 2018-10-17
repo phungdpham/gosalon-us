@@ -20,6 +20,6 @@ export default {
 
   //Get User login
   login: function(id) {
-    return axios.get("/api/login" + id);
+    return axios.post("/api/login" + id);
   }
 };

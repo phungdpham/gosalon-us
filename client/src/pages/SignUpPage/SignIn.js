@@ -3,7 +3,7 @@ import axios from "axios";
 import Jumpotron from "../../components/Jumpotron";
 import { Input, FormBtn } from "../../components/Form";
 import { Container, Row, Col } from "../../components/Grid";
-import Topbar from "../../components/Topbar";
+import Navbar from "../../components/Navbar";
 import { Card, CardTitle, CardBody } from "../../components/Card";
 import { pipeline } from "stream";
 import API from "../../utils/API";
@@ -49,14 +49,14 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <Topbar />
+                <Navbar />
                 <Jumpotron>
                     <Container fluid>
                         <Row>
                             <Col size="md-4" />
                             <Col size="md-4">
                                 <Card>
-                                    <CardTitle><h3>Sign In</h3></CardTitle>
+                                    <CardTitle><h3>Salon Portal Login</h3></CardTitle>
                                     <CardBody>
                                         <form>
 

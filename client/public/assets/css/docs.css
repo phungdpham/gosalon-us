@@ -433,6 +433,12 @@ Copyright 2018 Webpixels
     color: #510fa8;
 }
 
+.highlight
+{
+    padding: 0;
+
+    background: transparent;
+}
 .highlight pre
 {
     padding: 1.5rem;
@@ -441,7 +447,6 @@ Copyright 2018 Webpixels
     border-radius: .25rem; 
     background: #f5f9fb;
 }
-
 .highlight.in pre
 {
     display: block;
@@ -511,3 +516,5 @@ Copyright 2018 Webpixels
     color: #fff;
     background-color: #027de7;
 }
+
+/*# sourceMappingURL=maps/docs.css.map */

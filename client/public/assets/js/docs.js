@@ -17,28 +17,49 @@ Copyright 2018 Webpixels
 
 $(document).ready(function() {
 
-	// Copy code blocks to clipboard
+	// Insert copy to clipboard button before .highlight
+    $('figure.highlight, div.highlight').each(function() {
+        var btnHtml = '<div class="code-clipboard"><button class="btn-clipboard" title="Copy to clipboard">Copy</button></div>'
+        $(this).before(btnHtml)
+        $('.btn-clipboard')
+            .tooltip()
+            .on('mouseleave', function() {
+                // Explicitly hide tooltip, since after clicking it remains
+                // focused (as it's a button), so tooltip would otherwise
+                // remain visible until focus is moved away
+                $(this).tooltip('hide')
+            })
+    })
 
-	$("figure.highlight, div.highlight").each(function() {
-	    var t = '<div class="code-clipboard"><button class="btn-clipboard" title="Copy to clipboard">Copy</button></div>';
-	    $(this).before(t);
-	    $(".btn-clipboard").tooltip().on("mouseleave", function() {
-	        $(this).tooltip("hide")
-	    });
-	});
+    // Component code copy/paste
+    var clipboard = new ClipboardJS('.btn-clipboard', {
+        target: function(trigger) {
+            return trigger.parentNode.nextElementSibling
+        }
+    })
 
-	var t = new Clipboard(".btn-clipboard", {
-	    target: function(e) {
-	        return e.parentNode.nextElementSibling
-	    }
-	});
-	t.on("success", function(t) {
-	    e(t.trigger).attr("title", "Copied!").tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle");
-	    t.clearSelection()
-	});
-	t.on("error", function(t) {
-	    var n = /Mac/i.test(navigator.userAgent) ? "⌘" : "Ctrl-";
-	    var r = "Press " + n + "C to copy";
-	    e(t.trigger).attr("title", r).tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle")
-	});
+    clipboard.on('success', function(e) {
+        $(e.trigger)
+            .attr('title', 'Copied!')
+            .tooltip('_fixTitle')
+            .tooltip('show')
+            .attr('title', 'Copy to clipboard')
+            .tooltip('_fixTitle')
+
+        e.clearSelection()
+    })
+
+    clipboard.on('error', function(e) {
+        var modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-'
+        var fallbackMsg = 'Press ' + modifierKey + 'C to copy'
+
+        $(e.trigger)
+            .attr('title', fallbackMsg)
+            .tooltip('_fixTitle')
+            .tooltip('show')
+            .attr('title', 'Copy to clipboard')
+            .tooltip('_fixTitle')
+    })
 });
+
+//# sourceMappingURL=maps/docs.js.map

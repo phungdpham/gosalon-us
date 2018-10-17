@@ -13,7 +13,7 @@ const styles = {
 const Navbar = () => (
     <nav className="navbar navbar-main navbar-expand-lg navbar-dark navbar-fixed-top" id="navbar-main"  style={styles.backgroundColor} >
         <div className="container">
-            <a className ="navbar-brand mr-lg-5 text-white">AHH NAILS SPA</a>
+            <a className ="navbar-brand mr-lg-5 text-white" href="/">AHH NAILS SPA</a>
             <button 
                 className="navbar-toggler" 
                 type="button" 
@@ -26,9 +26,9 @@ const Navbar = () => (
             </button>
             <div className="collapse navbar-collapse navbar-dark" id="navbar-main-collapse">
                 <ul className="navbar-nav align-items-lg-center">
-                    <li className="nav-item mx-2">
+                    {/* <li className="nav-item mx-2">
                         <a className="nav-link text-white" href="#">Home</a>
-                    </li>
+                    </li> */}
                     <li className="nav-item mx-2 text-white">Services</li>
                     <li className="nav-item mx-2 text-white">Gallery</li>
                     <li className="nav-item mx-2 text-white">Special</li>
@@ -45,7 +45,9 @@ const Navbar = () => (
                             <span><i className="fas fa-shopping-cart"></i></span>
                             <span>Get Direction</span>
                         </a>
-
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link ml-5" href="/login">Login<i className="fas fa-user-circle"></i></a>
                     </li>
                 </ul>
             </div>
