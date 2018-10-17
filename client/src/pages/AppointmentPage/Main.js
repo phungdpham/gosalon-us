@@ -26,11 +26,11 @@ class Appointments extends Component {
         date: "",
         time: "",
         name: "",
-        phone: "",
+        phone: ""
     };
 
-    HandleSelectService = service => {
-        const { name, value } = service.target;
+    handleSelectService = event => {
+        const { name, value } = event.target;
         this.setState({
             [name]: value
         })
@@ -45,18 +45,16 @@ class Appointments extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if(this.state.service && this.state.date && this.state.time && this.state.name && this.state.phone) {
-            API.saveAppointment({
-                service: this.state.serviceBooked,
-                date: this.state.date.format("L"),
-                time: this.state.date.format("LT"),
-                name: this.state.name,
-                phone: this.state.phone
-            })
-        }
+        API.saveAppointment({
+            service: this.state.service,
+            date: this.state.date.format("L"),
+            time: this.state.date.format("LT"),
+            name: this.state.name,
+            phone: this.state.phone
+        })
     }
 
-    handleDateChange(date) {
+    handleDateChange = date => {
         this.setState({
             date: date
         })
@@ -72,7 +70,7 @@ class Appointments extends Component {
                     <Row>
                         <Col size="md-6">
                             <ServiceList 
-                                stateInfo={this.state}
+                                stateInfo={this}
                             />
                         </Col>
                         <Col size="md-6">
@@ -86,14 +84,6 @@ class Appointments extends Component {
                                     </Panel>
 
                                         <form>
-                                            {/* <div className="form-group">
-                                                <DatePicker 
-                                                    selected={this.state.date}
-                                                    onChange={this.handleDateChange}
-                                                    placeholderText="Select Date"
-                                                    className="form-control form-control-emphasize"
-                                                />  
-                                            </div> */}
                                             <div className="form-group">
                                                 <DatePicker 
                                                     selected={this.state.date}
@@ -120,7 +110,7 @@ class Appointments extends Component {
                                                 value={this.state.phone}
                                                 onChange={this.handleInputChange}
                                                 name="phone"
-                                                placeholder="Enter your phone number"
+                                                placeholder="Your phone number"
                                             />
                                             <FormBtn
                                                 disabled={!this.state.service && this.state.date && this.state.time && this.state.name && this.state.name}

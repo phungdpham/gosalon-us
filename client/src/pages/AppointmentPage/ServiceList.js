@@ -29,7 +29,7 @@ const ServiceList = props => (
                         <span>
                             <BookBtn 
                                 name="service"
-                                value="Acrylic Full Set"
+                                value="Acrylic Pink And White"
                                 onClick={props.stateInfo.handleSelectService}
                             >Select
                             </BookBtn>                         

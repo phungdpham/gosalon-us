@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const appointmentSchema = mongoose.Schema({
+const appointmentSchema = new Schema({
     name: {type: String, require: true },
     phone: { type: Number, required: true },
     service: { type: String, required: true},
     date: {type: Date, require: true},
-    time: {type: String, require: true},
+    time: {type: Date, require: true},
 });
 
 const Appointment = mongoose.model("Appointment", appointmentSchema);
