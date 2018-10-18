@@ -25,11 +25,47 @@ app.use(bodyParser.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+
 // Add routes, both API and view
 app.use(routes);
 
+if(!isProduction) {
+  app.use(console.errorHandler());
+}
+
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gosalon");
+mongoose.set('debut', true)
+
+//Models
+require('./models/User');
+require('./config/passport');
+
+//Error handler & middleswares
+if(!isProduction) {
+  app.use((err, req, res) => {
+    res.status(err.status || 500);
+
+    res.json({
+      errors: {
+        message: err.message,
+        error: err,
+      },
+    });
+  });
+}
+
+app.use((err, req, res) => {
+  res.status(err.status || 500);
+
+  res.json({
+    errors: {
+      message: err.message,
+      error: {},
+    },
+  });
+});
 
 // Start the API server
 app.listen(PORT, function() {

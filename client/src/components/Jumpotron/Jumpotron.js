@@ -1,5 +1,5 @@
 import React from "react";
-import jumpotronImage from "../assets/images/jumpotron/jumpotron2-2.jpg";
+import jumpotronImage from "../assets/images/jumpotron/jumpotron1-3.jpg";
 
 
 
