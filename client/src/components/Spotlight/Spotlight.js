@@ -32,8 +32,8 @@ const Spotlight = () => (
                                 <div className="row justify-content-center">
                                     <div className="col-lg-6">
                                         <p className="lead text-dark lh-180">
-                                        Beauty Nails is the premier destination for nail services in Orlando, Florida. Our goal is to pamper all the ladies
-                                        with manicures and pedicures with the highest quality service.
+                                        {/* Beauty Nails is the premier destination for nail services in Orlando, Florida. Our goal is to pamper all the ladies
+                                        with manicures and pedicures with the highest quality service. */}
                                         </p>
                                         <ul className="navbar-nav align-items-lg-center ml-lg-auto">
                                             <li className="nav-item mr-0">

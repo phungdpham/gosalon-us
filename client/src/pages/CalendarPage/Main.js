@@ -25,7 +25,7 @@ class Main extends Component {
                         </Col>
                         <Col size="md-4">
                             <Panel>
-                                <PanelHeading><h3 className="my-3">Pending Booking</h3></PanelHeading>
+                                <PanelHeading><h3 className="my-3">Pending Appointments</h3></PanelHeading>
                                 <PanelBody>
                                     <Booking />
                                 </PanelBody>
@@ -51,7 +51,7 @@ class Calendar extends Component {
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            dayClick: function() {
+            dayClick: function () {
                 alert("Need a function to go to a specific date")
             }
         })
@@ -93,7 +93,7 @@ class Booking extends Component {
             <Card>
                 <CardTitle>
                     <h5>
-                        <span className="float-left">Pedicure</span>
+                        <span className="float-left">Acrylic Pink And White</span>
                         <span className="float-right ml-5">2:15PM</span>
                         <span className="float-right">Tue 10-15</span>
                     </h5>
@@ -101,17 +101,14 @@ class Booking extends Component {
 
                 <CardBody>
                     <p>
-                        <span>
-                            <a className="btn btn-sm btn-outline-light float-left">View</a>
-                        </span>
-                        <span>
-                            <a className="btn btn-sm btn-warning  text-white float-right">Confirm</a>
-                        </span>
+                        Customer Name: Phung Pham
+                        <p>
+                            Phone Number: (321) 310-4761
+                        </p>
 
-                        <span>
-                            <a className="btn btn-sm btn-outline-light float-left ml-3">Change</a>
-                        </span>
                     </p>
+                    <button className="btn btn-lg btn-warning float-right">Confirm</button>
+
 
 
 

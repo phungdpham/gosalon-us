@@ -1,84 +1,84 @@
-const mongoose = require('mongoose');
-const passport = require('passport');
-const router = require('express').Router();
-const auth = require('../auth');
-const Users = require('../../models/Users');
+// const mongoose = require('mongoose');
+// const passport = require('passport');
+// const router = require('express').Router();
+// const auth = require('../auth');
+// const Users = require('../../models/Users');
 
-//Post new user route (optional, everyone has access)
-router.post('/', auth.optional, (req, res, next) => {
-    const { body: { user } } = req;
+// //Post new user route (optional, everyone has access)
+// router.post('/', auth.optional, (req, res, next) => {
+//     const { body: { user } } = req;
 
-    if(!user.email) {
-        return res.status(422).json({
-            err: {
-                email: 'is required',
-            }
-        })
-    }
+//     if(!user.email) {
+//         return res.status(422).json({
+//             err: {
+//                 email: 'is required',
+//             }
+//         })
+//     }
 
-    if(!user.password) {
-        return res.status(422).json({
-            err: {
-                password: 'is required',
-            },
-        });
-    }
+//     if(!user.password) {
+//         return res.status(422).json({
+//             err: {
+//                 password: 'is required',
+//             },
+//         });
+//     }
 
-    const finalUser = new Users(user);
+//     const finalUser = new Users(user);
 
-    finalUser.setPassword(user.password);
+//     finalUser.setPassword(user.password);
 
-    return finalUser.save()
-        .then(()  => res.json({ user: finalUser.toAuthJSON() }));
-});
+//     return finalUser.save()
+//         .then(()  => res.json({ user: finalUser.toAuthJSON() }));
+// });
 
-//Post login route
-router.post('/login', auth.optional, (req, res, next) => {
-    const { body: { user } } = req;
+// //Post login route
+// router.post('/login', auth.optional, (req, res, next) => {
+//     const { body: { user } } = req;
 
-    if(!user.email) {
-        return res.status(422).json({
-            err: {
-                email: 'is required',
-            },
-        });
-    }
-    if(!user.passport) {
-        return res.status(422).json({
-            err: {
-                password: 'is reuqired',
-            },
-        });
-    }
+//     if(!user.email) {
+//         return res.status(422).json({
+//             err: {
+//                 email: 'is required',
+//             },
+//         });
+//     }
+//     if(!user.passport) {
+//         return res.status(422).json({
+//             err: {
+//                 password: 'is reuqired',
+//             },
+//         });
+//     }
 
-    return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
-        if(err) {
-            return next(err);
-        }
+//     return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
+//         if(err) {
+//             return next(err);
+//         }
 
-        if(passportUser) {
-            const user = passportUser;
-            user.token = passportUser.generateJWT();
+//         if(passportUser) {
+//             const user = passportUser;
+//             user.token = passportUser.generateJWT();
 
-            return res.json({ user: user.toAuthJSON() });
-        }
+//             return res.json({ user: user.toAuthJSON() });
+//         }
 
-        return status(400).info;
-    })(req, res, next);
-});
+//         return status(400).info;
+//     })(req, res, next);
+// });
 
-//Get current route (required, only authenticated users have access)
-router.get('/current', auth.required, (req, res, next) => {
-    const { payload: { id } } = req;
+// //Get current route (required, only authenticated users have access)
+// router.get('/current', auth.required, (req, res, next) => {
+//     const { payload: { id } } = req;
 
-    return Users.findById(id)
-        .then((user) => {
-            if(!user) {
-                return res.sendStatus(400);
-            }
-            return res.json({ user: user.toAuthJSON() });
-        });
-})
-;
+//     return Users.findById(id)
+//         .then((user) => {
+//             if(!user) {
+//                 return res.sendStatus(400);
+//             }
+//             return res.json({ user: user.toAuthJSON() });
+//         });
+// })
+// ;
 
-module.exports = router;
+// module.exports = router;

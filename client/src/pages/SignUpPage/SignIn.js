@@ -68,18 +68,20 @@ class Login extends Component {
                                             />
 
                                             <Input
-                                                value={this.state.username}
+                                                value={this.state.password}
                                                 name="password"
                                                 onChange={this.handleInputChange}
-                                                placeholder="Enter your password"
+                                                placeholder="Your Password"
 
                                             />
-                                            <FormBtn
+                                            {/* <FormBtn
                                                 disabled={!this.state.username && this.state.password}
                                                 onClick={this.handleSubmit}
                                             >Book
-                                            </FormBtn>
+                                            </FormBtn> */}
                                         </form>
+                                        <a className="btn btn-warning text-white" href="/login/user=phungpham">Sign In</a>
+
 
                                     </CardBody>
                                 </Card>

@@ -12,9 +12,9 @@ import { PanelGroup, Panel, PanelHeading, PanelBody, BookBtn } from "../../compo
 import Navbar from "../../components/Navbar";
 import { Container, Row, Col } from "../../components/Grid";
 import { Card, CardTitle, CardBody } from "../../components/Card";
-import { FormBtn, Input } from"../../components/Form";
+import { FormBtn, Input } from "../../components/Form";
 import { List, ListItem } from "../../components/List";
-import Span from "../../components/Span";
+import ModalConfirmed from "../../components/Modal";
 //Import JSX Component
 import ServiceList from "./ServiceList";
 
@@ -39,9 +39,9 @@ class Appointments extends Component {
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-          [name]: value
+            [name]: value
         });
-      };
+    };
 
     handleFormSubmit = event => {
         event.preventDefault();
@@ -69,7 +69,7 @@ class Appointments extends Component {
                 <Container>
                     <Row>
                         <Col size="md-6">
-                            <ServiceList 
+                            <ServiceList
                                 stateInfo={this}
                             />
                         </Col>
@@ -79,55 +79,61 @@ class Appointments extends Component {
                                 <CardBody>
                                     <Panel>
                                         <PanelBody>
-                                            <h5>Selecting Service: {this.state.service}</h5>
+                                            Booking ... <h5>{this.state.service}</h5>
                                         </PanelBody>
                                     </Panel>
 
-                                        <form>
-                                            <div className="form-group">
-                                                <DatePicker 
-                                                    selected={this.state.date}
-                                                    onChange={this.handleDateChange}
-                                                    placeholderText="Select Date and Time"
-                                                    showTimeSelect
-                                                    timeFormat="HH:mm"
-                                                    timeIntervals={15}
-                                                    dateFormat="LLL"
-                                                    timeCaption="Time"
-                                                    minTime={moment().hours(9).minutes(0)}
-                                                    maxTime={moment().hours(19).minutes(30)}
-                                                    
-                                                    className="form-control form-control-emphasize"
-                                                />  
-                                            </div>
-                                            <Input
-                                                value={this.state.name}
-                                                onChange={this.handleInputChange}
-                                                name="name"
-                                                placeholder="Your Name"
+                                    <form>
+                                        <div className="form-group">
+                                            <DatePicker
+                                                selected={this.state.date}
+                                                onChange={this.handleDateChange}
+                                                placeholderText="Select Date and Time"
+                                                showTimeSelect
+                                                timeFormat="HH:mm"
+                                                timeIntervals={15}
+                                                dateFormat="LLL"
+                                                timeCaption="Time"
+                                                minTime={moment().hours(9).minutes(0)}
+                                                maxTime={moment().hours(19).minutes(30)}
+
+                                                className="form-control form-control-emphasize"
                                             />
-                                            <Input
-                                                value={this.state.phone}
-                                                onChange={this.handleInputChange}
-                                                name="phone"
-                                                placeholder="Your phone number"
-                                            />
-                                            <FormBtn
+                                        </div>
+                                        <Input
+                                            value={this.state.name}
+                                            onChange={this.handleInputChange}
+                                            name="name"
+                                            placeholder="Your Name"
+                                        />
+                                        <Input
+                                            value={this.state.phone}
+                                            onChange={this.handleInputChange}
+                                            name="phone"
+                                            placeholder="Your phone number"
+                                        />
+                                        {/* <FormBtn
                                                 disabled={!this.state.service && this.state.date && this.state.time && this.state.name && this.state.name}
                                                 onClick={this.handleFormSubmit}
                                             >Confirm 
-                                            </FormBtn>
-                                            
-                                        </form>
+                                            </FormBtn> */}
+
+                                    </form>
+                                    <a className="btn btn-warning text-white" href="/confirmation">Book</a>
+
+
+                                    
+                                    
 
                                 </CardBody>
                             </Card>
                         </Col>
                     </Row>
                 </Container>
+
             </div>
-        );
-                                    }
+        )
+    }
 
 }
 

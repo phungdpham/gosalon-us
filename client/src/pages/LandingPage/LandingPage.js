@@ -17,9 +17,9 @@ const LandingPage = () => (
             <Spotlight />
         </Jumpotron>
 
-        <MainContainer>
+        {/* <MainContainer>
             <Gallery />
-        </MainContainer>
+        </MainContainer> */}
     </div>
 );
 
